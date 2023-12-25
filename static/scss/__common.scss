@@ -1,0 +1,167 @@
+// general styles
+
+$global-transition: 150ms color linear, 200ms background-color ease-in-out,
+  150ms width linear, 200ms border-color linear, transform 200ms linear,
+  margin 220ms linear, 150ms opacity linear;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: $global-transition;
+
+  &::selection {
+    background-color: $primary-color;
+    color: $white;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  color: $dark;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-size: 18px;
+  line-height: 24px;
+  font-family: 'Poppins', sans-serif;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $primary-color;
+    border-radius: 20px;
+  }
+
+  @include responsive_small {
+    font-size: 16px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+// preloader
+#preloader {
+  background: $primary-color url(../img/loading.svg) no-repeat center center;
+  background-size: 10%;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 1000;
+}
+
+.section-bg {
+  background-color: #f5f8fc;
+}
+
+.section-container {
+  max-width: 1150px;
+  margin: 10px auto;
+  padding: 30px 25px;
+
+  @include responsive-medium {
+    padding: 20px;
+  }
+
+  @include responsive-small {
+    padding: 15px 10px;
+  }
+
+  .section-title,
+  .section-subtitle {
+    color: $grey;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 30px;
+    line-height: 38px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+
+    @include responsive-medium {
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 500;
+    margin-bottom: 20px;
+
+    @include responsive-medium {
+      margin-bottom: 10px;
+      font-size: 12.5px;
+      line-height: 24px;
+    }
+  }
+}
+
+.btn {
+  border: none;
+  outline: hidden;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: inherit;
+  background-color: $primary-color;
+  text-decoration: none;
+  color: $light !important;
+  padding: 23px 8px;
+  min-width: 110px;
+  width: 100%;
+  max-width: fit-content;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 40px;
+  @include flex(center, center);
+  display: inline-flex;
+  border: 2px solid transparent;
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: $primary-color;
+    background-color: transparent;
+    color: $dark !important;
+  }
+
+  @include responsive-medium {
+    padding: 5px;
+    height: 35px;
+    min-width: 90px;
+  }
+}
+
+.top-arrow {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: $primary-color;
+  padding: 7px;
+  border-radius: 5px;
+  cursor: pointer;
+}
